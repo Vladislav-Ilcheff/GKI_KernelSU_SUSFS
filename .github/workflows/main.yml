@@ -551,7 +551,7 @@ jobs:
 
   publish-manager-artifacts:
     needs: list-manager-apks
-    if: "github.event_name == 'workflow_dispatch' && !inputs.test_release_notes && needs.list-manager-apks.outputs.apk_list != ''"
+    if: "github.event_name == 'workflow_dispatch' && !inputs.test_release_notes && needs.list-manager-apks.outputs.apk_list != '' && needs.list-manager-apks.outputs.apk_list != '[]'"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
